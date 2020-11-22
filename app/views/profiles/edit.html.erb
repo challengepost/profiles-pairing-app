@@ -1,0 +1,8 @@
+<h1>Editing Profile</h1>
+
+<%= render 'form', profile: @profile %>
+
+<%= link_to "Add Link", new_profile_link_path(@profile) %>
+<%= link_to 'Show', @profile %> |
+<%= link_to 'Back', profiles_path %>
+
