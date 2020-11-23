@@ -2,7 +2,7 @@
 
 <%= render 'form', profile: @profile %>
 
-<%= link_to "Add Link", new_profile_link_path(@profile) %>
+<%= link_to "Show Links", profile_links_path(@profile) %> |
 <%= link_to 'Show', @profile %> |
 <%= link_to 'Back', profiles_path %>
 

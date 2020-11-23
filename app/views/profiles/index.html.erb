@@ -12,14 +12,16 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-        <td>Name: <%= profile.name %></td>
+        <td><b>Name: <%= profile.name %></b></td>
       </tr>
       <tr>
         <td>Age: <%= profile.age %></td>
       </tr>
 
-      <% profile.links.each do |link| %>
-        <%= link_to "<b>#{link.name}</b> - #{link.url}".html_safe, href: link.url %>
+    <% profile.links.each do |link| %>
+      <tr>
+        <td><%= link_to "<b>#{link.name}</b> - #{link.url}".html_safe, href: link.url %></td>
+      <tr>
       <% end %>
       <tr>
         <td><%= link_to 'Edit', edit_profile_path(profile) %></td>

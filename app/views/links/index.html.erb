@@ -10,11 +10,20 @@
   </thead>
 
   <tbody>
-    <% @links.each do |link| %>
+    <% @profile.links.each do |link| %>
       <tr>
-        <td><%= link_to 'Show', link %></td>
-        <td><%= link_to 'Edit', edit_link_path(link) %></td>
-        <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <b><%= link.name %></b>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= link_to link.url %>
+        </td>
+      </tr>
+      <tr>
+        <td><%= link_to 'Edit', edit_profile_link_path(@profile, link) %></td>
+        <td><%= link_to 'Destroy', profile_link_path(@profile, link), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +31,5 @@
 
 <br>
 
-<%= link_to 'New Link', new_link_path %>
+<%= link_to 'New Link', new_profile_link_path(@profile) %> |
+<%= link_to 'Back to Edit Profile', edit_profile_path(@profile) %>

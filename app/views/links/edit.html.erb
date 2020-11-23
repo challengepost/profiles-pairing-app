@@ -1,6 +1,5 @@
 <h1>Editing Link</h1>
 
-<%= render 'form', link: @link %>
+<%= render 'form' %>
 
-<%= link_to 'Show', @link %> |
-<%= link_to 'Back', links_path %>
+<%= link_to 'Back', profile_links_path(@profile) %>
