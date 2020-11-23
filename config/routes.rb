@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :profiles do
     resources :links
   end
+
+  resources :linked_profiles, only: :index
 end
