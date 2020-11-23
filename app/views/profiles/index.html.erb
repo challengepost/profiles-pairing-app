@@ -11,22 +11,24 @@
 
   <tbody>
     <% @profiles.each do |profile| %>
-      <tr>
-        <td><b>Name: <%= profile.name %></b></td>
-      </tr>
-      <tr>
-        <td>Age: <%= profile.age %></td>
-      </tr>
+      <% cache profile do %>
+        <tr>
+          <td><b>Name: <%= profile.name %></b></td>
+        </tr>
+        <tr>
+          <td>Age: <%= profile.age %></td>
+        </tr>
 
-    <% profile.links.each do |link| %>
-      <tr>
-        <td><%= link_to "<b>#{link.name}</b> - #{link.url}".html_safe, href: link.url %></td>
-      <tr>
+      <% profile.links.each do |link| %>
+        <tr>
+          <td><%= link_to "<b>#{link.name}</b> - #{link.url}".html_safe, href: link.url %></td>
+        <tr>
+        <% end %>
+        <tr>
+          <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+          <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
       <% end %>
-      <tr>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
     <% end %>
   </tbody>
 </table>

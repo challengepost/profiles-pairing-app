@@ -1,17 +1,7 @@
 class LinksController < ApplicationController
   before_action :set_profile
-  before_action :set_link, only: [:show, :edit, :update, :destroy]
+  before_action :set_link, only: [:edit, :update, :destroy]
 
-  # GET /links
-  # GET /links.json
-  def index
-    @links = Link.all
-  end
-
-  # GET /links/1
-  # GET /links/1.json
-  def show
-  end
 
   # GET /links/new
   def new
